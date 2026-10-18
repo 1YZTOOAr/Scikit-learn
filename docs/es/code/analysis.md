@@ -1,6 +1,6 @@
 # `analysis.py`: inspección y agregación
 
-Código fuente: [`src/retail_sales/analysis.py`](../../src/retail_sales/analysis.py).
+Código fuente: [`src/retail_sales/analysis.py`](https://github.com/1YZTOOAr/Scikit-learn/blob/main/src/retail_sales/analysis.py).
 
 ## Propósito
 

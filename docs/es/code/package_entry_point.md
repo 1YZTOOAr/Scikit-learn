@@ -1,6 +1,6 @@
 # `__main__.py`: ejecutar el paquete
 
-Código fuente: [`src/retail_sales/__main__.py`](../../src/retail_sales/__main__.py).
+Código fuente: [`src/retail_sales/__main__.py`](https://github.com/1YZTOOAr/Scikit-learn/blob/main/src/retail_sales/__main__.py).
 
 ## Función del fichero
 

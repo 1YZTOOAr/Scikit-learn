@@ -1,6 +1,6 @@
 # `workflow.py`: conectar las etapas del ejercicio
 
-Código fuente: [`src/retail_sales/workflow.py`](../../src/retail_sales/workflow.py).
+Código fuente: [`src/retail_sales/workflow.py`](https://github.com/1YZTOOAr/Scikit-learn/blob/main/src/retail_sales/workflow.py).
 
 ## Propósito
 

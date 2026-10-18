@@ -1,6 +1,6 @@
 # `model.py`: entrenar y evaluar la regresión
 
-Código fuente: [`src/retail_sales/model.py`](../../src/retail_sales/model.py).
+Código fuente: [`src/retail_sales/model.py`](https://github.com/1YZTOOAr/Scikit-learn/blob/main/src/retail_sales/model.py).
 
 ## Propósito y alcance
 

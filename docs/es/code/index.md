@@ -1,6 +1,6 @@
 # Guía detallada del código fuente
 
-Esta carpeta explica, fichero por fichero, la lógica del paquete implementado en [`src/retail_sales/`](../../src/retail_sales/). Está pensada como material de apoyo para seguir el ejercicio en clase.
+Esta carpeta explica, fichero por fichero, la lógica del paquete implementado en [`src/retail_sales/`](https://github.com/1YZTOOAr/Scikit-learn/tree/main/src/retail_sales/). Está pensada como material de apoyo para seguir el ejercicio en clase.
 
 ## Documentación por fichero
 

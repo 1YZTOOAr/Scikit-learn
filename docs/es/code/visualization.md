@@ -1,6 +1,6 @@
 # `visualization.py`: gráfico de ventas
 
-Código fuente: [`src/retail_sales/visualization.py`](../../src/retail_sales/visualization.py).
+Código fuente: [`src/retail_sales/visualization.py`](https://github.com/1YZTOOAr/Scikit-learn/blob/main/src/retail_sales/visualization.py).
 
 ## Propósito
 

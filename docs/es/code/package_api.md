@@ -1,6 +1,6 @@
 # `__init__.py`: interfaz pública del paquete
 
-Código fuente: [`src/retail_sales/__init__.py`](../../src/retail_sales/__init__.py).
+Código fuente: [`src/retail_sales/__init__.py`](https://github.com/1YZTOOAr/Scikit-learn/blob/main/src/retail_sales/__init__.py).
 
 ## Para qué sirve
 
@@ -15,13 +15,13 @@ from retail_sales import SalesAnalyzer, SalesExercise
 En vez de importar cada clase por su módulo:
 
 ```python
-from retail_sales.analisis import SalesAnalyzer
-from retail_sales.flujo import SalesExercise
+from retail_sales.analysis import SalesAnalyzer
+from retail_sales.workflow import SalesExercise
 ```
 
 ## Imports relativos
 
-Las líneas que comienzan con `from .` son imports relativos: el punto significa “desde el paquete actual”. Así, `.analisis` refiere a `analysis.py` dentro de `retail_sales`.
+Las líneas que comienzan con `from .` son imports relativos: el punto significa “desde el paquete actual”. Así, `.analysis` refiere a `analysis.py` dentro de `retail_sales`.
 
 El archivo vuelve accesibles estos nombres:
 

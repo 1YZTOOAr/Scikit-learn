@@ -1,6 +1,6 @@
 # `data.py`: creación de los datos
 
-Código fuente: [`src/retail_sales/data.py`](../../src/retail_sales/data.py).
+Código fuente: [`src/retail_sales/data.py`](https://github.com/1YZTOOAr/Scikit-learn/blob/main/src/retail_sales/data.py).
 
 ## Propósito
 

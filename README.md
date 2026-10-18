@@ -41,6 +41,12 @@ python -m pytest
 
 ## Documentación
 
-- [Enunciado del ejercicio](docs/exercise.md)
-- [Arquitectura del proyecto](docs/architecture.md)
-- [Guía detallada de cada fichero fuente](docs/code/index.md)
+- [Sitio bilingüe publicado](https://1yztooar.github.io/Scikit-learn/)
+- [Documentación en español](https://1yztooar.github.io/Scikit-learn/es/)
+- [Portal de la Wiki de GitHub](https://github.com/1YZTOOAr/Scikit-learn/wiki)
+- [Fuente de la portada de Wiki](wiki/Home.md)
+- [Enunciado en inglés](docs/en/exercise.md) · [Enunciado en español](docs/es/exercise.md)
+- [Arquitectura en inglés](docs/en/architecture.md) · [Arquitectura en español](docs/es/architecture.md)
+- [Guía del código en inglés](docs/en/code/index.md) · [Guía del código en español](docs/es/code/index.md)
+
+Para previsualizar el sitio localmente, instala `python -m pip install -e ".[docs]"` y ejecuta `python -m mkdocs serve`.

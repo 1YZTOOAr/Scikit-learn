@@ -15,28 +15,40 @@ Este documento describe la implementación del ejercicio de [enunciado del ejerc
 ```text
 Scikit-learn/
 ├── docs/
-│   ├── exercise.md
-│   └── architecture.md
+│   ├── en/
+│   │   ├── index.md
+│   │   ├── exercise.md
+│   │   ├── architecture.md
+│   │   └── code/
+│   └── es/
+│       ├── index.md
+│       ├── exercise.md
+│       ├── architecture.md
+│       └── code/
 ├── src/
 │   └── retail_sales/
 │       ├── __init__.py
-│       ├── data.py
+│       ├── __main__.py
 │       ├── analysis.py
+│       ├── data.py
 │       ├── preprocessing.py
 │       ├── visualization.py
 │       ├── model.py
 │       └── workflow.py
 ├── tests/
-│   └── test_retail_sales.py
+├── .github/workflows/docs.yml
+├── mkdocs.yml
 ├── pyproject.toml
 ├── pyrightconfig.json
 ├── pytest.ini
 └── requirements.txt
 ```
 
-`src/retail_sales/` contiene la lógica reutilizable y las clases del ejercicio. `__main__.py` es el punto de entrada del paquete; `tests/` verifica el flujo y sus componentes sin abrir ventanas gráficas. `pyproject.toml` declara el paquete, sus dependencias y el comando de consola; `pytest.ini` configura la ruta de pruebas y `pyrightconfig.json` la resolución del código fuente en el editor.
+`docs/en/` y `docs/es/` contienen las versiones inglesa y española, con la misma estructura y nombres de fichero. MkDocs Material y el plugin de internacionalización construyen el selector de idioma y el sitio; el workflow `.github/workflows/docs.yml` publica los cambios en GitHub Pages. La carpeta `wiki/` contiene una portada y una barra lateral de ejemplo para la Wiki, que enlazan al sitio publicado en lugar de duplicar sus páginas.
 
-Instala el proyecto y las dependencias de prueba en modo editable con `python -m pip install -e ".[test]"`, ejecuta las pruebas con `python -m pytest` y lanza el ejercicio desde la raíz con `python -m retail_sales` o con el comando `retail-sales`.
+`src/retail_sales/` contiene la lógica reutilizable y las clases del ejercicio. `__main__.py` es el punto de entrada del paquete; `tests/` verifica el flujo y sus componentes sin abrir ventanas gráficas. `pyproject.toml` declara el paquete y sus dependencias.
+
+Instala el sitio localmente con `python -m pip install -e ".[docs]"` y previsualízalo con `python -m mkdocs serve`. Para construirlo con validación estricta usa `python -m mkdocs build --strict`. Las pruebas del programa se ejecutan con `python -m pytest`; el ejercicio se inicia con `python -m retail_sales` o `retail-sales`.
 
 ## Componentes y clases
 

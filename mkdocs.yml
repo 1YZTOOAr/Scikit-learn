@@ -1,0 +1,77 @@
+site_name: Retail Sales Exercise
+site_url: https://1yztooar.github.io/Scikit-learn/
+repo_url: https://github.com/1YZTOOAr/Scikit-learn
+
+# The i18n plugin serves English at the root and Spanish under /es/.
+docs_dir: docs
+
+site_dir: site
+
+nav:
+  - Home: index.md
+  - Exercise: exercise.md
+  - Architecture: architecture.md
+  - Source code:
+      - Guide: code/index.md
+      - Package API: code/package_api.md
+      - Package entry point: code/package_entry_point.md
+      - Data: code/data.md
+      - Analysis: code/analysis.md
+      - Preprocessing: code/preprocessing.md
+      - Visualization: code/visualization.md
+      - Model: code/model.md
+      - Workflow: code/workflow.md
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: false
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+          site_name: Retail Sales Exercise
+        - locale: es
+          name: Español
+          build: true
+          site_name: Ejercicio de ventas minoristas
+          nav_translations:
+            Home: Inicio
+            Exercise: Ejercicio
+            Architecture: Arquitectura
+            Source code: Código fuente
+            Guide: Guía
+            Package API: API del paquete
+            Package entry point: Punto de entrada
+            Data: Datos
+            Analysis: Análisis
+            Preprocessing: Preprocesamiento
+            Visualization: Visualización
+            Model: Modelo
+            Workflow: Flujo de ejecución
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: true

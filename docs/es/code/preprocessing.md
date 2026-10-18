@@ -1,6 +1,6 @@
 # `preprocessing.py`: transformar los datos
 
-Código fuente: [`src/retail_sales/preprocessing.py`](../../src/retail_sales/preprocessing.py).
+Código fuente: [`src/retail_sales/preprocessing.py`](https://github.com/1YZTOOAr/Scikit-learn/blob/main/src/retail_sales/preprocessing.py).
 
 ## Propósito
 
