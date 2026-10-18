@@ -43,4 +43,4 @@ python -m pytest
 
 - [Enunciado del ejercicio](docs/exercise.md)
 - [Arquitectura del proyecto](docs/architecture.md)
-- [Guía detallada de cada fichero fuente](docs/src/index.md)
+- [Guía detallada de cada fichero fuente](docs/code/index.md)
