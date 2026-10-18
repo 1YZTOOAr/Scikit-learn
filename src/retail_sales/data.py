@@ -1,10 +1,10 @@
-"""Creación del conjunto de datos fijo del ejercicio."""
+"""Build the fixed dataset used in the exercise."""
 
 import pandas as pd
 
 
 class SalesDataFactory:
-    """Construye el DataFrame de ventas definido en el enunciado."""
+    """Create the sales DataFrame defined by the exercise."""
 
     _records = (
         {"Ciudad": "Madrid", "Año": 2021, "Mes": "Enero", "Ventas": 1500},
@@ -22,5 +22,5 @@ class SalesDataFactory:
     )
 
     def create_dataframe(self) -> pd.DataFrame:
-        """Devuelve una copia nueva del DataFrame del ejercicio."""
+        """Return a new DataFrame containing the exercise records."""
         return pd.DataFrame(self._records)

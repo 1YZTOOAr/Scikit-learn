@@ -1,4 +1,4 @@
-"""Pruebas del ejercicio de ventas minoristas."""
+"""Tests for the retail sales exercise."""
 
 import matplotlib
 
@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from ventas_minoristas import (
+from retail_sales import (
     SalesAnalyzer,
     SalesDataFactory,
     SalesExercise,
@@ -46,8 +46,8 @@ def test_preprocessor_normalizes_totals_to_zero_one_without_mutating_input() -> 
 
     normalized = SalesPreprocessor().normalize_totals(totals)
 
-    assert normalized["Ventas_normalizadas"].tolist() == [0.0, 0.5, 1.0]
-    assert "Ventas_normalizadas" not in totals
+    assert normalized["normalized_sales"].tolist() == [0.0, 0.5, 1.0]
+    assert "normalized_sales" not in totals
 
 
 def test_preprocessor_returns_numeric_month_feature_without_city() -> None:
@@ -57,15 +57,15 @@ def test_preprocessor_returns_numeric_month_feature_without_city() -> None:
 
     features = SalesPreprocessor().prepare_model_features(dataframe)
 
-    assert features.columns.tolist() == ["Año", "Mes_numero"]
-    assert features["Mes_numero"].tolist() == [1, 2]
+    assert features.columns.tolist() == ["Año", "month_number"]
+    assert features["month_number"].tolist() == [1, 2]
     assert "Ciudad" not in features.columns
 
 
 def test_preprocessor_rejects_unknown_month() -> None:
     dataframe = pd.DataFrame({"Año": [2021], "Mes": ["MesInventado"]})
 
-    with pytest.raises(ValueError, match="Meses no reconocidos"):
+    with pytest.raises(ValueError, match="Unrecognized months"):
         SalesPreprocessor().prepare_model_features(dataframe)
 
 
@@ -74,8 +74,8 @@ def test_visualizer_returns_figure_with_labels() -> None:
 
     figure = SalesVisualizer().plot_annual_sales(totals)
 
-    assert figure.axes[0].get_xlabel() == "Ciudad"
-    assert figure.axes[0].get_ylabel() == "Ventas"
+    assert figure.axes[0].get_xlabel() == "City"
+    assert figure.axes[0].get_ylabel() == "Sales"
     assert len(figure.axes[0].patches) == 6
     plt.close(figure)
 
@@ -98,5 +98,5 @@ def test_exercise_runs_and_returns_all_results() -> None:
     assert len(results.dataframe) == 12
     assert results.missing_values.sum() == 0
     assert len(results.annual_sales) == 6
-    assert results.normalized_annual_sales["Ventas_normalizadas"].between(0, 1).all()
+    assert results.normalized_annual_sales["normalized_sales"].between(0, 1).all()
     assert results.model_evaluation.test_size == 3

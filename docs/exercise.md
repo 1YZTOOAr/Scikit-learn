@@ -48,7 +48,7 @@ diccionario representa una fila:
 ```python
 import pandas as pd
 
-datos = [
+records = [
     {"Ciudad": "Madrid", "Año": 2021, "Mes": "Enero", "Ventas": 1500},
     {"Ciudad": "Barcelona", "Año": 2021, "Mes": "Enero", "Ventas": 2000},
     {"Ciudad": "Valencia", "Año": 2021, "Mes": "Enero", "Ventas": 1800},
@@ -63,7 +63,7 @@ datos = [
     {"Ciudad": "Valencia", "Año": 2022, "Mes": "Febrero", "Ventas": 2100},
 ]
 
-df = pd.DataFrame(datos)
+dataframe = pd.DataFrame(records)
 ```
 
 `Año` y `Ventas` serán numéricos; `Ciudad` y `Mes` serán texto. Convierte

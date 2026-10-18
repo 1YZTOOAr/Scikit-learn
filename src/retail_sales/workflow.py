@@ -1,20 +1,20 @@
-"""Coordinación del flujo completo del ejercicio."""
+"""Coordinate the complete exercise workflow."""
 
 from dataclasses import dataclass
 
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from .analisis import SalesAnalyzer
-from .datos import SalesDataFactory
-from .modelo import ModelEvaluation, SalesPredictor
-from .preprocesamiento import SalesPreprocessor
-from .visualizacion import SalesVisualizer
+from .analysis import SalesAnalyzer
+from .data import SalesDataFactory
+from .model import ModelEvaluation, SalesPredictor
+from .preprocessing import SalesPreprocessor
+from .visualization import SalesVisualizer
 
 
 @dataclass(frozen=True)
 class ExerciseResults:
-    """Resultados producidos en las distintas etapas del ejercicio."""
+    """Results produced by each stage of the exercise."""
 
     dataframe: pd.DataFrame
     missing_values: pd.Series
@@ -25,7 +25,7 @@ class ExerciseResults:
 
 
 class SalesExercise:
-    """Orquesta la generación, análisis, visualización y predicción de ventas."""
+    """Orchestrate sales data creation, analysis, visualization, and prediction."""
 
     def __init__(
         self,
@@ -42,7 +42,7 @@ class SalesExercise:
         self.predictor = predictor or SalesPredictor()
 
     def run(self, show_plot: bool = False) -> ExerciseResults:
-        """Ejecuta cada etapa y devuelve los resultados; mostrar el gráfico es opcional."""
+        """Run each stage and return its results; displaying the plot is optional."""
         dataframe = self.data_factory.create_dataframe()
         missing_values = self.analyzer.check_missing_values(dataframe)
         sales_statistics = self.analyzer.describe_sales(dataframe)

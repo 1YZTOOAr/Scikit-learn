@@ -1,13 +1,13 @@
-"""Transformaciones numéricas para el análisis y el modelo."""
+"""Numeric transformations for analysis and modeling."""
 
 import numpy as np
 import pandas as pd
 
 
 class SalesPreprocessor:
-    """Normaliza agregados y codifica meses para el modelo."""
+    """Normalize aggregates and encode month names for the model."""
 
-    _month_numbers = {
+    _month_to_number = {
         "Enero": 1,
         "Febrero": 2,
         "Marzo": 3,
@@ -23,35 +23,35 @@ class SalesPreprocessor:
     }
 
     def normalize_totals(self, totals: pd.DataFrame) -> pd.DataFrame:
-        """Añade Ventas_normalizadas en el rango [0, 1] sin alterar el original."""
+        """Add normalized_sales in [0, 1] without modifying the input."""
         if "Ventas" not in totals.columns:
-            raise ValueError("Falta la columna requerida: Ventas")
+            raise ValueError("Missing required column: Ventas")
         if totals.empty:
-            raise ValueError("No se pueden normalizar ventas sin registros")
+            raise ValueError("Cannot normalize sales without any records")
 
         values = totals["Ventas"].to_numpy(dtype=float)
         if not np.isfinite(values).all():
-            raise ValueError("Las ventas deben ser valores numéricos finitos")
+            raise ValueError("Sales values must be finite numbers")
 
         minimum = values.min()
         span = values.max() - minimum
         normalized = np.zeros_like(values) if span == 0 else (values - minimum) / span
 
         result = totals.copy()
-        result["Ventas_normalizadas"] = normalized
+        result["normalized_sales"] = normalized
         return result
 
     def prepare_model_features(self, dataframe: pd.DataFrame) -> pd.DataFrame:
-        """Devuelve Año y Mes_numero, sin usar Ciudad como predictor."""
+        """Return year and month_number features, without using city."""
         required = {"Año", "Mes"}
         missing = required.difference(dataframe.columns)
         if missing:
-            raise ValueError(f"Faltan columnas requeridas: {', '.join(sorted(missing))}")
+            raise ValueError(f"Missing required columns: {', '.join(sorted(missing))}")
 
         result = dataframe[["Año", "Mes"]].copy()
-        month_number = result["Mes"].map(self._month_numbers)
+        month_number = result["Mes"].map(self._month_to_number)
         if month_number.isna().any():
             invalid_months = sorted(result.loc[month_number.isna(), "Mes"].astype(str).unique())
-            raise ValueError(f"Meses no reconocidos: {', '.join(invalid_months)}")
-        result["Mes_numero"] = month_number.astype(int)
-        return result[["Año", "Mes_numero"]]
+            raise ValueError(f"Unrecognized months: {', '.join(invalid_months)}")
+        result["month_number"] = month_number.astype(int)
+        return result[["Año", "month_number"]]

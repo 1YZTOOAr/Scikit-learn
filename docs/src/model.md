@@ -1,6 +1,6 @@
-# `modelo.py`: entrenar y evaluar la regresión
+# `model.py`: entrenar y evaluar la regresión
 
-Código fuente: [`src/ventas_minoristas/modelo.py`](../../src/ventas_minoristas/modelo.py).
+Código fuente: [`src/retail_sales/model.py`](../../src/retail_sales/model.py).
 
 ## Propósito y alcance
 
@@ -30,7 +30,7 @@ El predictor crea un `SalesPreprocessor` y un `Pipeline` de Scikit-learn con `Li
 
 1. Comprueba que existan las columnas `Año`, `Mes` y `Ventas`. No requiere `Ciudad`.
 2. Comprueba que haya al menos dos filas; una no se puede dividir en dos subconjuntos no vacíos.
-3. Pide a `SalesPreprocessor` las variables `Año` y `Mes_numero`.
+3. Pide a `SalesPreprocessor` las variables `Año` y `month_number`.
 4. Separa el objetivo `target = dataframe["Ventas"]`: es el valor que la regresión debe aprender a estimar.
 5. `train_test_split` separa las variables y el objetivo en entrenamiento y prueba, usando el porcentaje y la semilla configurados.
 6. `self.model.fit(x_train, y_train)` ajusta la regresión a los datos de entrenamiento.

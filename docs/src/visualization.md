@@ -1,6 +1,6 @@
-# `visualizacion.py`: gráfico de ventas
+# `visualization.py`: gráfico de ventas
 
-Código fuente: [`src/ventas_minoristas/visualizacion.py`](../../src/ventas_minoristas/visualizacion.py).
+Código fuente: [`src/retail_sales/visualization.py`](../../src/retail_sales/visualization.py).
 
 ## Propósito
 

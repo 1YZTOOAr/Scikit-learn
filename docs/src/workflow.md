@@ -1,6 +1,6 @@
-# `flujo.py`: conectar las etapas del ejercicio
+# `workflow.py`: conectar las etapas del ejercicio
 
-Código fuente: [`src/ventas_minoristas/flujo.py`](../../src/ventas_minoristas/flujo.py).
+Código fuente: [`src/retail_sales/workflow.py`](../../src/retail_sales/workflow.py).
 
 ## Propósito
 

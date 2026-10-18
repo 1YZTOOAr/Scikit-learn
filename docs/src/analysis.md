@@ -1,6 +1,6 @@
-# `analisis.py`: inspección y agregación
+# `analysis.py`: inspección y agregación
 
-Código fuente: [`src/ventas_minoristas/analisis.py`](../../src/ventas_minoristas/analisis.py).
+Código fuente: [`src/retail_sales/analysis.py`](../../src/retail_sales/analysis.py).
 
 ## Propósito
 

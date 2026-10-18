@@ -20,13 +20,13 @@ Esto instala el paquete en modo editable, sus dependencias de ejecución y `pyte
 ## Ejecutar el ejercicio
 
 ```powershell
-python -m ventas_minoristas
+python -m retail_sales
 ```
 
 También queda disponible el comando:
 
 ```powershell
-ventas-minoristas
+retail-sales
 ```
 
 La ejecución muestra los valores ausentes, estadísticas descriptivas, totales por ciudad y año, ventas normalizadas y las métricas MSE y RMSE. En un entorno gráfico, abre también el gráfico de barras.
@@ -41,6 +41,6 @@ python -m pytest
 
 ## Documentación
 
-- [Enunciado del ejercicio](docs/ejercicio.md)
-- [Arquitectura del proyecto](docs/arquitectura_ejercicio.md)
+- [Enunciado del ejercicio](docs/exercise.md)
+- [Arquitectura del proyecto](docs/architecture.md)
 - [Guía detallada de cada fichero fuente](docs/src/index.md)

@@ -1,25 +1,25 @@
-"""Punto de entrada del paquete: python -m ventas_minoristas."""
+"""Package entry point: python -m retail_sales."""
 
-from .flujo import SalesExercise
+from .workflow import SalesExercise
 
 
 def main() -> None:
-    """Ejecuta el flujo y presenta los resultados principales."""
+    """Run the exercise and print its main results."""
     results = SalesExercise().run(show_plot=True)
 
-    print("Valores faltantes por columna:")
+    print("Missing values by column:")
     print(results.missing_values.to_string())
-    print("\nEstadísticas de ventas:")
+    print("\nSales statistics:")
     print(results.sales_statistics.to_string())
-    print("\nVentas totales por ciudad y año:")
+    print("\nTotal sales by city and year:")
     print(results.annual_sales.to_string(index=False))
-    print("\nVentas normalizadas:")
+    print("\nNormalized sales:")
     print(results.normalized_annual_sales.to_string(index=False))
-    print("\nEvaluación del modelo (Año y Mes):")
+    print("\nModel evaluation (year and month):")
     print(f"MSE: {results.model_evaluation.mse:.2f}")
     print(f"RMSE: {results.model_evaluation.rmse:.2f}")
     print(
-        "Registros de entrenamiento/prueba: "
+        "Training/test records: "
         f"{results.model_evaluation.train_size}/"
         f"{results.model_evaluation.test_size}"
     )

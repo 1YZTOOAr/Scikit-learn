@@ -1,4 +1,4 @@
-"""Entrenamiento y evaluación del modelo de regresión lineal."""
+"""Train and evaluate the linear regression model."""
 
 from dataclasses import dataclass
 
@@ -8,12 +8,12 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
-from .preprocesamiento import SalesPreprocessor
+from .preprocessing import SalesPreprocessor
 
 
 @dataclass(frozen=True)
 class ModelEvaluation:
-    """Resultados de evaluación sobre el subconjunto de prueba."""
+    """Evaluation results for the test subset."""
 
     mse: float
     rmse: float
@@ -24,24 +24,24 @@ class ModelEvaluation:
 
 
 class SalesPredictor:
-    """Predice ventas usando únicamente Año y Mes, como pide el enunciado."""
+    """Predict sales using only year and month, as required by the exercise."""
 
     def __init__(self, test_size: float = 0.2, random_state: int = 42) -> None:
         if not 0 < test_size < 1:
-            raise ValueError("test_size debe estar entre 0 y 1")
+            raise ValueError("test_size must be between 0 and 1")
         self.test_size = test_size
         self.random_state = random_state
         self.preprocessor = SalesPreprocessor()
         self.model = Pipeline([("regression", LinearRegression())])
 
     def evaluate(self, dataframe: pd.DataFrame) -> ModelEvaluation:
-        """Divide, entrena y evalúa el modelo con una semilla reproducible."""
+        """Split, train, and evaluate the model with a reproducible seed."""
         required = {"Año", "Mes", "Ventas"}
         missing = required.difference(dataframe.columns)
         if missing:
-            raise ValueError(f"Faltan columnas requeridas: {', '.join(sorted(missing))}")
+            raise ValueError(f"Missing required columns: {', '.join(sorted(missing))}")
         if len(dataframe) < 2:
-            raise ValueError("Se necesitan al menos dos registros para dividir los datos")
+            raise ValueError("At least two records are required to split the data")
 
         features = self.preprocessor.prepare_model_features(dataframe)
         target = dataframe["Ventas"]
@@ -53,14 +53,14 @@ class SalesPredictor:
         )
         self.model.fit(x_train, y_train)
         predictions = pd.Series(
-            self.model.predict(x_test), index=y_test.index, name="Prediccion"
+            self.model.predict(x_test), index=y_test.index, name="prediction"
         )
         mse = float(mean_squared_error(y_test, predictions))
 
         return ModelEvaluation(
             mse=mse,
             rmse=mse**0.5,
-            actual=y_test.rename("Ventas_reales"),
+            actual=y_test.rename("actual_sales"),
             predicted=predictions,
             train_size=len(x_train),
             test_size=len(x_test),

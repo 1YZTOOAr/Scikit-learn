@@ -1,6 +1,6 @@
-# `datos.py`: creación de los datos
+# `data.py`: creación de los datos
 
-Código fuente: [`src/ventas_minoristas/datos.py`](../../src/ventas_minoristas/datos.py).
+Código fuente: [`src/retail_sales/data.py`](../../src/retail_sales/data.py).
 
 ## Propósito
 
@@ -19,7 +19,7 @@ El nombre “factory” (fábrica) describe un objeto cuya responsabilidad es co
 - `Mes`: nombre del mes (`Enero` o `Febrero`), guardado como texto.
 - `Ventas`: importe ficticio, guardado como entero.
 
-La estructura es equivalente a una tabla: cada diccionario es una fila y todas las filas comparten las mismas columnas. Los valores son los proporcionados en [el enunciado](../ejercicio.md).
+La estructura es equivalente a una tabla: cada diccionario es una fila y todas las filas comparten las mismas columnas. Los valores son los proporcionados en [el enunciado](../exercise.md).
 
 El guion bajo inicial indica que `_records` es un detalle interno de la clase. No pretende ser una interfaz para que otros módulos modifiquen los datos.
 
@@ -30,7 +30,7 @@ Este método ejecuta `pd.DataFrame(self._records)` y devuelve la tabla de Pandas
 El DataFrame tiene 12 filas y 4 columnas. Pandas infiere los tipos: `Año` y `Ventas` son enteros, y `Ciudad` y `Mes` son texto (`object` en las versiones habituales de Pandas).
 
 ```python
-from ventas_minoristas import SalesDataFactory
+from retail_sales import SalesDataFactory
 
 df = SalesDataFactory().create_dataframe()
 print(df.shape)  # (12, 4)
