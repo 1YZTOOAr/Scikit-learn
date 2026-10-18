@@ -40,25 +40,35 @@ Importa las bibliotecas necesarias:
 - Matplotlib
 - Scikit-learn
 
-### 2. Cargar los datos
+### 2. Crear el DataFrame
 
-Crea un DataFrame con los siguientes datos:
+Crea el DataFrame directamente a partir de los datos proporcionados. Cada
+diccionario representa una fila:
 
-```csv
-Ciudad,Año,Mes,Ventas
-Madrid,2021,Enero,1500
-Barcelona,2021,Enero,2000
-Valencia,2021,Enero,1800
-Madrid,2021,Febrero,1700
-Barcelona,2021,Febrero,2100
-Valencia,2021,Febrero,1900
-Madrid,2022,Enero,1600
-Barcelona,2022,Enero,2200
-Valencia,2022,Enero,2000
-Madrid,2022,Febrero,1800
-Barcelona,2022,Febrero,2300
-Valencia,2022,Febrero,2100
+```python
+import pandas as pd
+
+datos = [
+    {"Ciudad": "Madrid", "Año": 2021, "Mes": "Enero", "Ventas": 1500},
+    {"Ciudad": "Barcelona", "Año": 2021, "Mes": "Enero", "Ventas": 2000},
+    {"Ciudad": "Valencia", "Año": 2021, "Mes": "Enero", "Ventas": 1800},
+    {"Ciudad": "Madrid", "Año": 2021, "Mes": "Febrero", "Ventas": 1700},
+    {"Ciudad": "Barcelona", "Año": 2021, "Mes": "Febrero", "Ventas": 2100},
+    {"Ciudad": "Valencia", "Año": 2021, "Mes": "Febrero", "Ventas": 1900},
+    {"Ciudad": "Madrid", "Año": 2022, "Mes": "Enero", "Ventas": 1600},
+    {"Ciudad": "Barcelona", "Año": 2022, "Mes": "Enero", "Ventas": 2200},
+    {"Ciudad": "Valencia", "Año": 2022, "Mes": "Enero", "Ventas": 2000},
+    {"Ciudad": "Madrid", "Año": 2022, "Mes": "Febrero", "Ventas": 1800},
+    {"Ciudad": "Barcelona", "Año": 2022, "Mes": "Febrero", "Ventas": 2300},
+    {"Ciudad": "Valencia", "Año": 2022, "Mes": "Febrero", "Ventas": 2100},
+]
+
+df = pd.DataFrame(datos)
 ```
+
+`Año` y `Ventas` serán numéricos; `Ciudad` y `Mes` serán texto. Convierte
+`Mes` a una representación numérica o categórica cuando prepares las variables
+del modelo.
 
 ### 3. Explorar y limpiar los datos
 
